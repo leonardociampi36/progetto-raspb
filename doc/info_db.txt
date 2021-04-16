@@ -1,0 +1,29 @@
+Collegamento come root
+$sudo mysql -u root -p
+
+# Creazion db
+mariaDB> CREATE DATABASE temperature_db;
+
+# Creazione utente e assegnazioni privilegi
+mariaDb> GRANT ALL PRIVILIEGES ON temperature_db.* TO 'user_temperature_db'@'localhost' IDINTIFIED BY 'password_temperature_db';
+
+mariaDb>quit
+
+
+Collegamento come utente normale
+$mysql -u user_temperature_db -p
+
+# Si comunica che si vuole usare temperature_db
+mariaDB>USE temperature_db;
+
+# Creazione tabella
+mariaDB>CREATE TABLE temperature_tbl (id INT NOT NULL AUTO_INCREMENT, date VARCHAR(15), time VARCHAR (15), temperature VARCHAR(15), PRIMARI KEY (id) );
+
+# Inserzione record
+mariaDB> INSERT INTO temperature_tbl (date, time, temperature) VALUES ("2012/04/08", "12:00", "22");
+
+# Recutero dati
+mariaDB> SELECT * FROM temperature_tbl;
+
+ 
+ 
